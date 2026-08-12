@@ -1,0 +1,7 @@
+# fotos originais (fonte) — site usa as versões otimizadas em assets/img
+imagens/
+*.HEIC
+
+# ambiente local
+.claude/
+.obsidian/
