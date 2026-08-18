@@ -9,6 +9,7 @@
   --text: #edeae2;
   --text-dim: #9a968c;
   --whats: #25d366;
+  --mfit-blue: #1670b8;
   --font-display: "Bebas Neue", sans-serif;
   --font-body: "Inter", sans-serif;
 }
@@ -324,9 +325,9 @@ h1, h2 {
 }
 
 /* ============ CARDS DOR ============ */
-.cards-4 {
+.cards-3 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
 }
 .card {
@@ -379,48 +380,6 @@ h1, h2 {
 }
 .step p { color: var(--text-dim); font-size: .95rem; }
 
-/* ============ PERFIL ============ */
-.perfil__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-.perfil__col {
-  border-radius: 6px;
-  padding: 2.2rem 2rem;
-  border: 1px solid var(--line);
-  background: var(--card);
-}
-.perfil__col--sim { border-top: 3px solid var(--gold); }
-.perfil__col--nao { border-top: 3px solid #3a3a3a; }
-.perfil__col h3 {
-  font-family: var(--font-display);
-  font-size: 1.7rem;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  margin-bottom: 1.4rem;
-}
-.perfil__col--sim h3 { color: var(--gold-light); }
-.perfil__col--nao h3 { color: var(--text-dim); }
-.perfil__col ul { list-style: none; }
-.perfil__col li {
-  position: relative;
-  padding-left: 1.6rem;
-  margin-bottom: 1rem;
-  color: var(--text-dim);
-  font-size: .95rem;
-}
-.perfil__col li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: .5em;
-  width: 8px; height: 8px;
-  border-radius: 1px;
-  transform: rotate(45deg);
-}
-.perfil__col--sim li::before { background: var(--gold); }
-.perfil__col--nao li::before { background: #3a3a3a; }
-
 /* ============ SOBRE ============ */
 .sobre__grid {
   display: grid;
@@ -444,7 +403,7 @@ h1, h2 {
 /* ============ COMO COMEÇAR ============ */
 .comecar__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 .comecar__item {
@@ -473,6 +432,23 @@ h1, h2 {
   margin-bottom: .6rem;
 }
 .comecar__item p { color: var(--text-dim); font-size: .92rem; }
+
+/* ============ PRONTO PARA COMEÇAR ============ */
+.pronto__text {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  margin-bottom: 1.6rem;
+}
+.pronto__accent {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  border-left: 3px solid var(--gold);
+  padding-left: 1.2rem;
+  margin-bottom: 2.4rem;
+}
 
 /* ============ FAQ ============ */
 .faq__item {
@@ -571,6 +547,36 @@ h1, h2 {
 .footer a:hover { text-decoration: underline; }
 .footer__copy { margin-top: .6rem; color: var(--text-dim); font-size: .8rem; }
 
+/* ============ MFIT FLUTUANTE ============ */
+.mfit-float {
+  position: fixed;
+  right: 1.4rem;
+  bottom: calc(1.4rem + 72px);
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
+  transition: transform .2s ease;
+}
+.mfit-float:hover { transform: scale(1.08); }
+.mfit-float img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.mfit-float::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--mfit-blue);
+  animation: mfit-pulse 2.4s ease-out infinite;
+  z-index: -1;
+}
+@keyframes mfit-pulse {
+  0%   { transform: scale(1); opacity: .55; }
+  70%  { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
 /* ============ WHATSAPP FLUTUANTE ============ */
 .whats-float {
   position: fixed;
@@ -615,6 +621,7 @@ h1, h2 {
   .reveal { opacity: 1; transform: none; transition: none; }
   .strip__track { animation: none; }
   .whats-float::before { animation: none; }
+  .mfit-float::before { animation: none; }
 }
 
 /* ============ RESPONSIVO ============ */
@@ -628,16 +635,16 @@ h1, h2 {
   .hero__media .photo-frame { max-width: 340px; }
   .metodo__media { justify-content: center; }
   .sobre__media { display: flex; justify-content: center; }
-  .cards-4 { grid-template-columns: 1fr 1fr; }
-  .comecar__grid { grid-template-columns: 1fr; }
-  .perfil__grid { grid-template-columns: 1fr; }
+  .cards-3 { grid-template-columns: 1fr 1fr; }
+  .comecar__grid { grid-template-columns: 1fr 1fr; }
   /* mobile: zoom na foto do CTA final pra cortar na cintura, sem mostrar pernas */
   .cta-final__bg { transform: scale(1.4); transform-origin: 50% 0%; }
 }
 
 @media (max-width: 560px) {
   body { font-size: .97rem; }
-  .cards-4 { grid-template-columns: 1fr; }
+  .cards-3 { grid-template-columns: 1fr; }
+  .comecar__grid { grid-template-columns: 1fr; }
   .wordmark { font-size: 1.5rem; }
   .section { padding: 4rem 0; }
   .section-head { flex-direction: column; gap: .6rem; margin-bottom: 2.4rem; }
@@ -657,6 +664,7 @@ h1, h2 {
   .cta-final { padding: 6.5rem 0; }
   .faq__item p { padding-right: .5rem; }
   .whats-float { width: 54px; height: 54px; right: 1rem; bottom: 1rem; }
+  .mfit-float { width: 54px; height: 54px; right: 1rem; bottom: calc(1rem + 66px); }
   .insta { padding: 2.6rem 0; }
   .insta__inner { flex-direction: column; align-items: flex-start; }
   .btn--insta { width: 100%; justify-content: center; }
