@@ -236,7 +236,7 @@ h1, h2 {
 .hero__sub {
   color: var(--text-dim);
   font-size: 1.08rem;
-  max-width: 46ch;
+  max-width: 60ch;
   margin-bottom: 2.2rem;
 }
 .hero--full .hero__sub { margin-left: auto; margin-right: auto; }
@@ -477,6 +477,7 @@ h1, h2 {
 }
 .faq__item[open] summary { color: var(--gold-light); }
 .faq__item[open] summary::after { transform: rotate(45deg); }
+.faq__highlight { display: inline-block; font-size: 1.02rem; font-weight: 700; }
 .faq__item p {
   color: var(--text-dim);
   padding: 0 2.5rem 1.5rem 0;

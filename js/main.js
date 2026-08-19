@@ -23,10 +23,6 @@ document.querySelectorAll(".faq__item").forEach((item) => {
   });
 });
 
-// Duplica trilha da faixa para loop contínuo do marquee
-const track = document.querySelector(".strip__track");
-if (track) track.innerHTML += track.innerHTML;
-
 // Barra CTA fixa: aparece depois que o hero sai da tela
 const stickybar = document.getElementById("stickybar");
 const hero = document.querySelector(".hero");
