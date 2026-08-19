@@ -280,7 +280,6 @@ h1, h2 {
 .strip__track {
   display: flex;
   align-items: center;
-  gap: 2.4rem;
   width: max-content;
   animation: marquee 28s linear infinite;
 }
@@ -291,12 +290,14 @@ h1, h2 {
   text-transform: uppercase;
   color: var(--text-dim);
   white-space: nowrap;
+  margin-right: 2.4rem;
 }
 .strip__track i {
   width: 6px; height: 6px;
   background: var(--gold);
   border-radius: 50%;
   flex-shrink: 0;
+  margin-right: 2.4rem;
 }
 @keyframes marquee {
   from { transform: translateX(0); }
