@@ -282,7 +282,9 @@ h1, h2 {
   align-items: center;
   width: max-content;
   animation: marquee 28s linear infinite;
+  animation-play-state: paused;
 }
+.strip__track.is-ready { animation-play-state: running; }
 .strip__track span {
   font-family: var(--font-display);
   font-size: 1.15rem;

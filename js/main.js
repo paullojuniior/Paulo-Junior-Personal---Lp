@@ -23,6 +23,17 @@ document.querySelectorAll(".faq__item").forEach((item) => {
   });
 });
 
+// Carrossel de credibilidade: só inicia a animação depois que a fonte
+// carregar, evitando um salto quando a largura da trilha muda no meio do loop
+const stripTrack = document.querySelector(".strip__track");
+if (stripTrack) {
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => stripTrack.classList.add("is-ready"));
+  } else {
+    stripTrack.classList.add("is-ready");
+  }
+}
+
 // Barra CTA fixa: aparece depois que o hero sai da tela
 const stickybar = document.getElementById("stickybar");
 const hero = document.querySelector(".hero");
